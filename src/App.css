@@ -1,0 +1,23 @@
+.container{
+  text-align: center;
+}
+button{
+  background: none;
+  border:none;
+}
+.button__user{
+  border:none;
+  background:#fd2526;
+  padding: 20px;
+  color:#fff;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium';
+  box-sizing: border-box;
+  box-shadow: 0 5px 5px  rgba(0,0, 0, 0.5);
+  margin: 15px;
+}
+.user__desc{
+  font-size: 25px;
+  font-weight: 700;
+}

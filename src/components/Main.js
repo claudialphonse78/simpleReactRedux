@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
-class Main extends Component {
-  render() {
+
+ const Main = (props) => {
     return (
       <div>
-        <button className="button__user">Change Username</button>
+        <button 
+        className="button__user"
+        onClick={() => props.changeUsername('Anna')}
+        >Change Username</button>
       </div>
     );
-  }
-}
-
+  };
 export default Main;

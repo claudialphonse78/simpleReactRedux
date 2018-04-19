@@ -103,5 +103,40 @@ So in a nutshell redux works as follows:
     ![](images/09_00.png)
 
 ## React with Redux
-` yarn add react-redux`
+    ` yarn add react-redux`
 - We can use react-redux as a bridge between react and redux as both are unaware of each other
+- To connect react with redux we have to perform following steps so that state is passed from store to react application
+    - We use `Provider` which is made available to  us from the react-redux package, to wrap our App (i.e main component) within it. Reason being so that we can pass the store to the App
+    - _mapStateToProps_  : is used to specify which properties of the global application `state` do you want to map to the props of the Component or assign to local properties.
+    ```
+      const mapStateToProps =(state) =>{
+        return{
+          user:state.user,
+          math:state.math
+        };
+      };
+    ```
+    we get it from the store
+    ```
+      const store =createStore(
+      combineReducers({math:mathReducer,user:userReducer}),
+      {},applyMiddleware(createLogger()));
+    ```
+    - To make `mapStateToProps()` work we have to use `connect()` which takes in two functions as arguments
+    ```
+      connect(mapStateToProps,mapDispatchToProps)
+    ```
+    - _mapDispatchToProps_  : is used to specify which actions we want to use in this component
+
+## Smart & Dumb Components
+  ![](images/10_00.png)
+  - Dumb Components aka Presentation Components are not directly connected to Redux and dont know about the state,hence `dumb`
+  - Similarly containers are smart as they know about the state
+
+## Asynchronous Actions
+- The flow in the program used above is Synchronous by default.
+- By default redux provides only synchronous ,to do async actions we can  use `redux-thunk` 
+- `redux` returns an object whereas `redux-thunk` returns a function
+
+# Conclusion
+- Eventhough this was a simple react-redux application where we did not need to use redux ,it is a practice application to understand the how data flows and how the file would be structured in a big project.
